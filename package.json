@@ -1,0 +1,27 @@
+{
+  "name": "pre-entrega",
+  "version": "1.0.0",
+  "description": "Esta es una pre entrega del curso de node JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandro7/Pre-entrega.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandro7/Pre-entrega/issues"
+  },
+  "homepage": "https://github.com/leandro7/Pre-entrega#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+}
