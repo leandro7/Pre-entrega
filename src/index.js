@@ -1,6 +1,6 @@
 const args = process.argv.slice(2)
 const [requisito1, ...requisitos] = args
-let url = 'https://fakestoreapi.com/'
+const url = 'https://fakestoreapi.com/'
 
 const resolveMethod = async () => {
   try {
@@ -17,9 +17,31 @@ const resolveMethod = async () => {
         break
       }
       case 'POST':{
-        console.log('Opción POST')
-        break
-      }
+        if (requisitos.length == 4) { // verifica que la cantidad de parametros sea la pedida
+          const [param, title, price, category] = requisitos
+          if (param.includes('products')) { // verifia que el parametro sea el correcto
+            const req = {
+              title: title,
+              price: price,
+              category: category
+            }
+            const config = {
+              method: "POST",
+              body: JSON.stringify(req),
+              headers: {
+                "content-Type": "application/json"
+              }
+            }
+            const res = await fetch(url.concat("", param), config)
+            const data = await res.json()
+            console.log(data.id)
+          } else {
+            console.error("parametro mal ingresado")
+          }
+        } else {
+          console.error("Cantidad de parámetros mal ingresados")
+        }
+        break }
       case 'DELETE':{
         console.log('Opción DELETE')
         break }
