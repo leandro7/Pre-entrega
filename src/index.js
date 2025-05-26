@@ -43,7 +43,19 @@ const resolveMethod = async () => {
         }
         break }
       case 'DELETE':{
-        console.log('Opción DELETE')
+        const [param] = requisitos
+        if (param.includes('products/')) {
+          const config = {
+            method: 'DELETE'
+          }
+          const res = await fetch(url.concat("", param), config)
+          if (res.status === 204) {
+            console.log("Producto elminado")
+          } else {
+            const data = await res.json()
+            console.log(data)
+          }
+        }
         break }
       default:{
         console.error("Método mal ingresado")
